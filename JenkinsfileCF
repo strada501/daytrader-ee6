@@ -10,17 +10,17 @@ pipeline {
  stages {
  stage('Continuous Integration') {
  steps {
- sh '''
- # build dt-ejb project
+ bat '''
+ REM build dt-ejb project
  cd dt-ejb
  mvn clean install
- # build Rest project
+ REM build Rest project
  cd ../Rest
  mvn clean install
- # build web project
+ REM build web project
  cd ../web
  mvn clean install
- # build EAR, create Liberty server, run tests
+ REM build EAR, create Liberty server, run tests
  cd ../daytrader-ee6
  mvn clean verify ?Pci-liberty
  cd ..
@@ -29,8 +29,8 @@ pipeline {
  }
  stage('Continuous Delivery') {
  steps {
- sh '''
- #!/bin/bash
+ bat '''
+ REM!/bin/bash
  cd daytrader-ee6/target
  echo "CF Login..."
                     cf api <a href="https://api.ng.bluemix.net">https://api.ng.bluemix.net</a>
