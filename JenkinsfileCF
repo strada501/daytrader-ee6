@@ -30,7 +30,7 @@ pipeline {
  stage('Continuous Delivery') {
  steps {
  bat '''
- REM!/bin/bash
+ 
  cd daytrader-ee6/target
  echo "CF Login..."
                     cf api <a href="https://api.ng.bluemix.net">https://api.ng.bluemix.net</a>
