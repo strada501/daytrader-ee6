@@ -10,21 +10,10 @@ pipeline {
  stages {
  stage('Continuous Integration') {
  steps {
- bat '''
- REM build dt-ejb project
- cd dt-ejb
- mvn clean install
- REM build Rest project
- cd ../Rest
- mvn clean install
- REM build web project
- cd ../web
- mvn clean install
- REM build EAR, create Liberty server, run tests
- cd ../daytrader-ee6
- mvn clean verify ?Pci-liberty
- cd ..
- '''
+ bat 'mvn -f dt-ejb/pom.xml clean install'
+ bat 'mvn -f Rest/pom.xml clean install'
+ bat 'mvn -f web/pom.xml clean install'
+ bat 'mvn -f daytrader-ee6/pom.xml clean verify -Pci-liberty'
  }
  }
  stage('Continuous Delivery') {
