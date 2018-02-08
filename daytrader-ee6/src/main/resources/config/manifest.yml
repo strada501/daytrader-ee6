@@ -1,0 +1,10 @@
+applications:
+- name: daytrader-ee6
+  memory:  512M 
+  disk_quota:  1024M 
+  instances:  1 
+  domain: mybluemix.net 
+  host: cloudenabled20180202
+  disk_quota:  1024M 
+  env: 
+    DAYTRADER3_CONTEXT_ROOT_URL: "https://cloudenabled20180202.mybluemix.net/daytrader"
