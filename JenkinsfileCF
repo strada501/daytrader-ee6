@@ -21,18 +21,11 @@ pipeline {
  bat '''
  
  cd daytrader-ee6/target
- echo "CF Login..."
-                    cf api <a href="https://api.ng.bluemix.net">https://api.ng.bluemix.net</a>
  cf login -u $CF_USER -p $CF_PWD -o $CF_ORG -s $CF_SPACE
- echo "Deploying...."
- if cf app $CF_APP_NAME; then
- echo "Application already exists, pushing new version..."
- cf push $CF_APP_NAME -n $CF_APP_NAME -f ../src/main/resources/config/manifest.yml -p wlp/usr/servers/Daytrader3Sample
- else
- echo "New Application, push and restage required..."
- cf push $CF_APP_NAME -n $CF_APP_NAME -f ../src/main/resources/config/manifest.yml -p wlp/usr/servers/Daytrader3Sample
+ 
+ cf push $CF_APP_NAME -n $CF_APP_NAME -f ./daytrader-ee6/target/src/main/resources/config/manifest.yml -p ./daytrader-ee6/target/wlp/usr/servers/Daytrader3Sample
  cf restage $CF_APP_NAME
- fi
+ 
  '''
  }
  }
