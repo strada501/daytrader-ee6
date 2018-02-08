@@ -23,6 +23,7 @@ pipeline {
  cd daytrader-ee6/target
  cf api https://api.ng.bluemix.net
  
+ cf login -u %CF_USER% -p %CF_PWD% -o %CF_ORG% -s %CF_SPACE%
  cf push %CF_APP_NAME% -n %CF_APP_NAME% -f ../src/main/resources/config/manifest.yml -p wlp/usr/servers/Daytrader3Sample
  cf restage %CF_APP_NAME%
  
