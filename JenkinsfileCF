@@ -10,7 +10,7 @@ pipeline {
  stages {
  stage('Continuous Integration') {
  steps {
- bat '''
+ sh '''
  # build dt-ejb project
  cd dt-ejb
  mvn clean install
@@ -29,7 +29,7 @@ pipeline {
  }
  stage('Continuous Delivery') {
  steps {
- bat '''
+ sh '''
  #!/bin/bash
  cd daytrader-ee6/target
  echo "CF Login..."
