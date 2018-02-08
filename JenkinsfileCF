@@ -1,11 +1,11 @@
 pipeline {
  agent any
  parameters {
- string(name: 'CF_USER', defaultValue: '<your userid>')
- string(name: 'CF_PWD', defaultValue: '<your password>')
- string(name: 'CF_ORG', defaultValue: '<your org>')
+ string(name: 'CF_USER', defaultValue: 'strada@jp.ibm.com')
+ string(name: 'CF_PWD', defaultValue: '5tgbnhy6')
+ string(name: 'CF_ORG', defaultValue: 'strada@jp.ibm.com')
  string(name: 'CF_SPACE', defaultValue: 'dev')
- string(name: 'CF_APP_NAME', defaultValue: '<your app name>')
+ string(name: 'CF_APP_NAME', defaultValue: 'wlp-daytrader-ee6')
  }
  stages {
  stage('Continuous Integration') {
